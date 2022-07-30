@@ -1,20 +1,64 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from "react";
+import { StyleSheet, View, ImageBackground, SafeAreaView } from "react-native";
+import Colors from "./constants/Colors";
+import GameOverScreen from "./screens/GameOverScreen";
+import GameScreen from "./screens/GameScreen";
+import StartScreen from "./screens/StartScreen";
 
 export default function App() {
+  const [userNumber, setUserNumber] = useState();
+  const [guessNumber, setGuessNumber] = useState(0);
+  const [gameIsOver, setGameIsOver] = useState(true);
+  function handlePickedNumber(pickedNum) {
+    setUserNumber(pickedNum);
+    setGameIsOver(false);
+  }
+  function handleGameIsOver(numOfRounds) {
+    setGameIsOver(true);
+    setGuessNumber(numOfRounds);
+  }
+  function handleRestart() {
+    setUserNumber(null);
+    setGuessNumber(0);
+  }
+  let screen = <StartScreen onPickedNumber={handlePickedNumber} />;
+  if (userNumber) {
+    screen = (
+      <GameScreen userNumber={userNumber} onGameOver={handleGameIsOver} />
+    );
+  }
+  if (gameIsOver && userNumber) {
+    screen = (
+      <GameOverScreen
+        randomNumber={guessNumber}
+        userNumber={userNumber}
+        onRestart={handleRestart}
+      />
+    );
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={styles.RootScreen}>
+      <ImageBackground
+        source={{
+          uri: "https://images.unsplash.com/photo-1570303345338-e1f0eddf4946?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=771&q=80",
+        }}
+        resizeMode="cover"
+        style={styles.RootScreen}
+        imageStyle={styles.ImageBackground}
+      >
+        {/* <SafeAreaView style={styles.RootScreen}>{screen}</SafeAreaView> */}
+        {screen}
+      </ImageBackground>
     </View>
   );
 }
-
 const styles = StyleSheet.create({
-  container: {
+  RootScreen: {
+    backgroundColor: Colors.bkGround,
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  },
+  ImageBackground: {
+    opacity: 0.47,
   },
 });
