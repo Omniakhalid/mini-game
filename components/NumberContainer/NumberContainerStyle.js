@@ -1,13 +1,5 @@
-import { Text, View, StyleSheet } from "react-native";
-import Colors from "../constants/Colors";
-
-export default function NumberContainer({ children }) {
-  return (
-    <View style={styles.Container}>
-      <Text style={styles.TextStyle}>{children}</Text>
-    </View>
-  );
-}
+import { StyleSheet } from "react-native";
+import Colors from "../../constants/Colors";
 
 const styles = StyleSheet.create({
   Container: {
@@ -25,3 +17,5 @@ const styles = StyleSheet.create({
     fontSize: 36,
   },
 });
+
+export default styles;

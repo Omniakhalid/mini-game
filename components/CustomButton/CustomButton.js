@@ -1,5 +1,5 @@
-import { View, Text, Pressable, StyleSheet } from "react-native";
-import Colors from "../constants/Colors";
+import { View, Text, Pressable } from "react-native";
+import styles from "./CustomButtonStyle";
 export default function CustomButton({ children, onPress }) {
   return (
     <View style={styles.ButtonOuterContainer}>
@@ -20,28 +20,3 @@ export default function CustomButton({ children, onPress }) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  Pressed: {
-    opacity: 0.75,
-  },
-  ButtonOuterContainer: {
-    borderRadius: 12,
-    margin: 4,
-    overflow: "hidden",
-  },
-  ButtonInnerContainer: {
-    backgroundColor: Colors.primary,
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    elevation: 4,
-    //borderRadius: 12,
-  },
-
-  TextButton: {
-    color: "white",
-    textAlign: "center",
-    fontSize: 16,
-    margin: 2,
-  },
-});

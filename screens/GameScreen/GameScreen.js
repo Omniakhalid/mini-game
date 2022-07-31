@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { Text, View, StyleSheet, Alert, FlatList } from "react-native";
-import Card from "../components/Card";
-import CustomButton from "../components/CustomButton";
-import NumberContainer from "../components/NumberContainer";
-import Title from "../components/Title";
-import Colors from "../constants/Colors";
+import Card from "../../components/Card/Card";
+import CustomButton from "../../components/CustomButton/CustomButton";
+import NumberContainer from "../../components/NumberContainer/NumberContainer";
+import Title from "../../components/Title/Title";
+import styles from "./GameScreenStyle";
 import { Ionicons } from "@expo/vector-icons";
-import GuessLogItems from "../components/GuessLogItems";
+import GuessLogItems from "../../components/GuessLogItem/GuessLogItems";
 function generateRandomBetween(min, max, exclude) {
   const rndNum = Math.floor(Math.random() * (max - min)) + min;
 
@@ -89,28 +89,3 @@ export default function GameScreen({ userNumber, onGameOver }) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  Container: {
-    flex: 1,
-    padding: 28,
-    marginTop: 24,
-  },
-
-  ButtonsContainer: {
-    flexDirection: "row",
-  },
-  ButtonContainer: {
-    flex: 1,
-  },
-  TextStyle: {
-    color: Colors.secondary,
-    fontSize: 18,
-    fontWeight: "bold",
-    marginBottom: 10,
-  },
-  listContainer: {
-    flex: 1,
-    padding: 16,
-  },
-});

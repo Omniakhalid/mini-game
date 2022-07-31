@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { StyleSheet, View, ImageBackground, SafeAreaView } from "react-native";
 import Colors from "./constants/Colors";
-import GameOverScreen from "./screens/GameOverScreen";
-import GameScreen from "./screens/GameScreen";
-import StartScreen from "./screens/StartScreen";
+import GameOverScreen from "./screens/GameOverScreen/GameOverScreen";
+import GameScreen from "./screens/GameScreen/GameScreen";
+import StartScreen from "./screens/StartScreen/StartScreen";
 
 export default function App() {
   const [userNumber, setUserNumber] = useState();

@@ -1,8 +1,4 @@
-import { Text, StyleSheet } from "react-native";
-import Colors from "../constants/Colors";
-export default function Title({ children }) {
-  return <Text style={styles.Title}>{children}</Text>;
-}
+import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   Title: {
     color: "white",
@@ -14,3 +10,5 @@ const styles = StyleSheet.create({
     padding: 12,
   },
 });
+
+export default styles;

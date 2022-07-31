@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { View, TextInput, StyleSheet, Alert, Text } from "react-native";
-import Card from "../components/Card";
-import CustomButton from "../components/CustomButton";
-import Title from "../components/Title";
-import Colors from "../constants/Colors";
+import Card from "../../components/Card/Card";
+import CustomButton from "../../components/CustomButton/CustomButton";
+import Title from "../../components/Title/Title";
+import styles from "./StartScreenStyle";
 export default function StartScreen({ onPickedNumber }) {
   const [enteredNumber, setEnteredNumber] = useState("");
   function handleNumberInput(value) {
@@ -49,33 +49,3 @@ export default function StartScreen({ onPickedNumber }) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  RootContainer: {
-    flex: 1,
-    alignItems: "center",
-    marginTop: 100,
-  },
-  Input: {
-    height: 50,
-    fontSize: 24,
-    width: 50,
-    borderBottomColor: Colors.secondary,
-    borderBottomWidth: 2,
-    color: Colors.secondary,
-    marginVertical: 8,
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-  ButtonsContainer: {
-    flexDirection: "row",
-  },
-  ButtonContainer: {
-    flex: 1,
-  },
-  TextStyle: {
-    color: Colors.secondary,
-    fontSize: 18,
-    fontWeight: "bold",
-  },
-});

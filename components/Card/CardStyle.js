@@ -1,8 +1,6 @@
-import { View, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
+import Colors from "../../constants/Colors";
 
-export default function Card({ children }) {
-  return <View style={styles.Container}>{children}</View>;
-}
 const styles = StyleSheet.create({
   Container: {
     justifyContent: "center",
@@ -14,3 +12,5 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primaryDark,
   },
 });
+
+export default styles;

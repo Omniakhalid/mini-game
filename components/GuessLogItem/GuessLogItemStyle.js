@@ -1,14 +1,6 @@
-import { View, Text, StyleSheet } from "react-native";
-import Colors from "../constants/Colors";
+import { StyleSheet } from "react-native";
+import Colors from "../../constants/Colors";
 
-export default function GuessLogItems({ roundNumber, guess }) {
-  return (
-    <View style={styles.listItem}>
-      <Text>#{roundNumber}</Text>
-      <Text>Opponent's Guess {guess}</Text>
-    </View>
-  );
-}
 const styles = StyleSheet.create({
   listItem: {
     borderColor: Colors.primaryDark,
@@ -28,3 +20,5 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
   },
 });
+
+export default styles;
